@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\img_upload2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_grafico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_signout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/tgBtn_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/tgBtn_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\img_upload.png" />
+  </ItemGroup>
+</Project>
