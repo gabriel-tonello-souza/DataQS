@@ -123,7 +123,12 @@
         <DataTemplate x:Name="VariaveisViewTemplate" DataType="{x:Type viewmodels:VariaveisViewModel}">
             <views:Variaveis DataContext="{Binding}"></views:Variaveis>
         </DataTemplate>
-
+        <DataTemplate x:Name="CadastroViewTemplate" DataType="{x:Type viewmodels:CadastroViewModel}">
+            <views:Cadastro DataContext="{Binding}"></views:Cadastro>
+        </DataTemplate>
+        <DataTemplate x:Name="GraficosViewTemplate" DataType="{x:Type viewmodels:GraficosViewModel}">
+            <views:Graficos DataContext="{Binding}"></views:Graficos>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -323,10 +328,10 @@
 
                         </ListViewItem>
 
-                        <!--// Contacts //-->
+                        <!--// Register //-->
 
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" Selected="ListViewItem_Selected_1"
                                       >
 
                             <StackPanel Orientation="Horizontal"
@@ -346,26 +351,25 @@
 
                             <ListViewItem.ToolTip>
 
-                                <ToolTip x:Name="tt_graficos"
+                                <ToolTip x:Name="tt_register"
                                          Content="Gráficos"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-
-                        <!--// Messages //-->
-
+                        
+                        <!--  -->
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" Selected="ListViewItem_Selected_2"
                                       >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
                                 <Image Source="Assets/img_grafico.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Stretch="Fill"
+                                       Margin="12,0,0,0" StretchDirection="DownOnly" Width="30" Height="40"/>
 
                                 <TextBlock Text="Gráficos"
                                            Margin="25,0,0,0"
@@ -377,14 +381,15 @@
 
                             <ListViewItem.ToolTip>
 
-                                <ToolTip x:Name="tt_var3"
-                                         Content="var3"
+                                <ToolTip x:Name="tt_graficos"
+                                         Content="Gráficos"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
 
+                        
                         <!--// Maps //-->
 
                         <ListViewItem HorizontalAlignment="Left"
@@ -418,66 +423,7 @@
 
                         <!--// Settings //-->
 
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-                                <Image Source="Assets/img_setting.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
-
-                                <TextBlock Text="Settings"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-                            </StackPanel>
-
-                            <!--// Tooltip //-->
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_settings"
-                                         Content="Settings"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--// Sign Out //-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-                                <Image Source="Assets/img_signout.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
-
-                                <TextBlock Text="Sign Out"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-                            </StackPanel>
-
-                            <!--// Tooltip //-->
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_var5"
-                                         Content="Sign Out"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
+                        
                         <!--// Listview items style template //-->
 
                         <ListView.ItemContainerStyle>

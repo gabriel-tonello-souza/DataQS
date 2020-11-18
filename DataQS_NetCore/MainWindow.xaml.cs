@@ -33,20 +33,18 @@ namespace DataQS_NetCore
             if (Tg_Btn.IsChecked == true)
             {
                 tt_variaveis.Visibility = Visibility.Collapsed;
-                tt_graficos.Visibility = Visibility.Collapsed;
-                tt_var3.Visibility = Visibility.Collapsed;
+                tt_register.Visibility = Visibility.Collapsed;
                 tt_var4.Visibility = Visibility.Collapsed;
-                tt_settings.Visibility = Visibility.Collapsed;
-                tt_var5.Visibility = Visibility.Collapsed;
+                tt_graficos.Visibility = Visibility.Collapsed;
+
             }
             else
             {
                 tt_variaveis.Visibility = Visibility.Visible;
-                tt_graficos.Visibility = Visibility.Visible;
-                tt_var3.Visibility = Visibility.Visible;
+                tt_register.Visibility = Visibility.Visible;
                 tt_var4.Visibility = Visibility.Visible;
-                tt_settings.Visibility = Visibility.Visible;
-                tt_var5.Visibility = Visibility.Visible;
+                tt_graficos.Visibility = Visibility.Visible;
+
             }
         }
 
@@ -73,6 +71,16 @@ namespace DataQS_NetCore
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
             DataContext = new VariaveisViewModel();
+        }
+
+        private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+            DataContext = new CadastroViewModel();
+       }
+
+        private void ListViewItem_Selected_2(object sender, RoutedEventArgs e)
+        {
+            DataContext = new GraficosViewModel();
         }
     }
 

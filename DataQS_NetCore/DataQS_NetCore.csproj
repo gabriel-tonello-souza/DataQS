@@ -40,4 +40,20 @@
   <ItemGroup>
     <Resource Include="Assets\img_upload.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\Cadastro.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Graficos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Cadastro.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Graficos.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>
