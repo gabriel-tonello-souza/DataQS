@@ -8,6 +8,9 @@
     <None Remove="Assets\img_upload2.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Assets/img_contact.png" />
   </ItemGroup>
   <ItemGroup>
@@ -39,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\img_upload.png" />
+  </ItemGroup>
+    <ItemGroup>
+    <Resource Include="Assets\img_register.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Pages\Cadastro.xaml.cs">

@@ -7,11 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#FF3F3F8F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="74*"/>
+            <RowDefinition Height="76*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="74*"/>
+            <RowDefinition Height="47*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/> 
+            <ColumnDefinition Width="265*"/>
+            <ColumnDefinition Width="266*"/>
+            <ColumnDefinition Width="269*"/>
         </Grid.ColumnDefinitions>
-        <TextBox HorizontalAlignment="Left" Margin="135,186,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Cadastro Estação" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" FontFamily="Roboto Light" FontSize="48"/>
+        <TextBox Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="White" SelectionBrush="#FF2C2C72" FontFamily="Roboto Light" FontSize="14" BorderThickness="5,2,1,2" Height="22" Grid.Row="3" Margin="44,55,44,0"/>
+        <Label Content="Cadastro Estação" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" FontFamily="Roboto Light" FontSize="48" Grid.ColumnSpan="2" Height="68" Width="371" Grid.RowSpan="2"/>
+        <Label Content="Latitude" Margin="44,32,161,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Height="26" Grid.Row="3"/>
+        <TextBox x:Name="Latitude"  TextWrapping="Wrap" BorderBrush="White" SelectionBrush="#FF2C2C72" FontFamily="Roboto Light" FontSize="14" BorderThickness="5,2,1,2" Grid.Column="1" Grid.Row="3" Margin="44,55,44,0" Height="22" VerticalAlignment="Top"/>
+        <Label Content="Longitude" Margin="44,32,124,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Grid.Column="1" Height="26" Grid.Row="3"/>
+        <TextBox x:Name="Longitude"  TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="White" SelectionBrush="#FF2C2C72" FontFamily="Roboto Light" FontSize="14" BorderThickness="5,2,1,2" Grid.Column="2" Height="22" Grid.Row="3" Margin="44,55,44,0"/>
+        <Label Content="Altitude" Margin="44,32,138,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Grid.Column="2" Height="26" Grid.Row="3"/>
+        <TextBox x:Name="TemperaturaMaxAbs" Margin="44,45,44,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="White" SelectionBrush="#FF2C2C72" FontFamily="Roboto Light" FontSize="14" BorderThickness="5,2,1,2" Height="21" Grid.Row="4"/>
+        <Label Content="Temp Max Abs" Margin="44,24,73,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Height="26" Grid.Row="4"/>
+        <TextBox x:Name="TemperaturaMinAbs" Margin="44,45,44,0"  TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="White" SelectionBrush="#FF2C2C72" FontFamily="Roboto Light" FontSize="14" BorderThickness="5,2,1,2" Grid.Column="1" Height="21" Grid.Row="4"/>
+        <Label Content="Temp Min Abs" Margin="44,24,125,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Grid.Column="1" Height="26" Grid.Row="4"/>
+        <TextBox x:Name="PrecipitacaoMaxAbs" Margin="44,45,44,0"  TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="White" SelectionBrush="#FF2C2C72" FontFamily="Roboto Light" FontSize="14" BorderThickness="5,2,1,2" Grid.Column="2" Height="21" Grid.Row="4"/>
+        <Label Content="Precipit Max Abs" Margin="44,24,74,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Grid.Column="2" Height="26" Grid.Row="4"/>
+        <ComboBox Grid.Row="1" VerticalAlignment="Top" FontSize="14" AutomationProperties.Name="Estacoes" Height="26" Margin="44,38,44,0"/>
+        <Label Content="Estações" Margin="44,17,44,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Height="26" Grid.Row="1"/>
+        <Button Content="Salvar" Grid.Column="2" x:Name="Salvar" HorizontalAlignment="Left" Margin="171,0,0,0" Grid.Row="5" VerticalAlignment="Center"/>
+        <TextBox Text="TextBox" x:Name="Nome" TextWrapping="Wrap" VerticalAlignment="Top" BorderBrush="White" SelectionBrush="#FF2C2C72" FontFamily="Roboto Light" FontSize="14" BorderThickness="5,2,1,2" Height="22" Grid.Row="2" Margin="44,54,44,0"/>
+        <Label Content="Nome" Margin="44,31,161,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Height="26" Grid.Row="2"/>
 
     </Grid>
 </UserControl>

@@ -352,7 +352,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_register"
-                                         Content="Gráficos"
+                                         Content="Registro"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
