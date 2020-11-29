@@ -2,72 +2,53 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
+using System.IO;
 using System.Text;
 
 namespace DataQS_NetCore.DAL
 {
     public class AcessoDados
     {
+        public SQLiteConnection Connect;
 
-        public string stringDeConexao
+        public string ConnectionString { get; set; }
+
+        string connection;
+
+        public void GetConnection()
         {
-            get
-            {
-                ConnectionStringSettings conn = System.Configuration.ConfigurationManager.ConnectionStrings["BancoDeDados"];
-                if (conn != null)
-                    return conn.ConnectionString;
-                else
-                    return string.Empty;
-            }
+            connection = @"Data Source=Database.db; Version=3";
+            ConnectionString = connection;
         }
 
-        public void Executar(string NomeProcedure, List<SqlParameter> parametros)
+        //Creating new Database
+        public AcessoDados()
         {
-            SqlCommand comando = new SqlCommand();
-            SqlConnection conexao = new SqlConnection(stringDeConexao);
-            comando.Connection = conexao;
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.CommandText = NomeProcedure;
-            foreach (var item in parametros)
-                comando.Parameters.Add(item);
-
-            conexao.Open();
-            try
+            if (!File.Exists("./Database.db"))
             {
-                comando.ExecuteNonQuery();
+                SQLiteConnection.CreateFile("Database.db");
+                GetConnection();
+
+                using (SQLiteConnection con = new SQLiteConnection(connection))
+                {
+                    SQLiteCommand command = new SQLiteCommand();
+                    con.Open();
+                    command.CommandText = @"CREATE TABLE Estacoes ( ID                INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                                            Latitude           DECIMAL (18)  NULL,
+                                                            Longitude          DECIMAL (18)  NULL,
+                                                            Altitude           DECIMAL (18)  NULL,
+                                                            TemperaturaMaxAbs  DECIMAL (18)  NULL,
+                                                            TemperaturaMinAbs  DECIMAL (18)  NULL,
+                                                            PrecipitacaoMaxAbs DECIMAL (18)  NULL,
+                                                            Nome               VARCHAR (255) NULL)";
+                    command.Connection = con;
+                    command.ExecuteNonQuery();
+
+                    con.Close();
+                }
             }
-            finally
-            {
-                conexao.Close();
-            }
-        }
-
-        public DataSet Consultar(string NomeProcedure, List<SqlParameter> parametros)
-        {
-            SqlCommand comando = new SqlCommand();
-            SqlConnection conexao = new SqlConnection(stringDeConexao);
-
-            comando.Connection = conexao;
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.CommandText = NomeProcedure;
-            foreach (var item in parametros)
-                comando.Parameters.Add(item);
-
-            SqlDataAdapter adapter = new SqlDataAdapter(comando);
-            DataSet ds = new DataSet();
-            conexao.Open();
-
-            try
-            {
-                adapter.Fill(ds);
-            }
-            finally
-            {
-                conexao.Close();
-            }
-
-            return ds;
+            else return;
         }
 
     }

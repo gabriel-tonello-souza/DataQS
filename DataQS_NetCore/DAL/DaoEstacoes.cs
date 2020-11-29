@@ -6,27 +6,75 @@ using System.Text;
 using System.Threading.Tasks;
 using DataQS_NetCore.DML;
 using DataQS_NetCore.DAL;
+using DataConnection;
+using System.Data.SQLite;
+using System.Windows;
 
 namespace DataQS_NetCore.DAL
 {
-    class DaoEstacoes : AcessoDados
+    class DaoEstacoes
     {
-        public long AddEstation(Estacoes Estacoes)
+        AcessoDados Data;
+        public void AddEstation(Estacoes Estacoes)
         {
-            List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
-            
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Latitude", Estacoes.Latitude));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Longitude", Estacoes.Longitude));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Altitude", Estacoes.Altitude));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("TemperaturaMaxAbs", Estacoes.TemperaturaMaxAbs));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("TemperaturaMinAbs", Estacoes.TemperaturaMinAbs));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("PrecipitacaoMaxAbs", Estacoes.PrecipitacaoMaxAbs));
+            Data = new AcessoDados();
 
-            DataSet ds = base.Consultar("InsertEstation", parametros);
-            long ret = 0;
-            if (ds.Tables[0].Rows.Count > 0)
-                long.TryParse(ds.Tables[0].Rows[0][0].ToString(), out ret);
-            return ret;
+            try
+            {
+                Data.GetConnection();
+                using (SQLiteConnection con = new SQLiteConnection(Data.ConnectionString))
+                {
+                    con.Open();
+                    SQLiteCommand command = new SQLiteCommand();
+
+                    string query = @"INSERT INTO Estacoes(Nome,Latitude, Longitude, Altitude, TemperaturaMaxAbs, TemperaturaMinAbs, PrecipitacaoMaxAbs) 
+	                                              VALUES (@Nome,@Latitude, @Longitude, @Altitude, @TemperaturaMaxAbs, @TemperaturaMinAbs, @PrecipitacaoMaxAbs)";
+                    command.CommandText = query;
+                    command.Connection = con;
+                    command.Parameters.Add(new SQLiteParameter("Latitude", Estacoes.Latitude));
+                    command.Parameters.Add(new SQLiteParameter("Longitude", Estacoes.Longitude));
+                    command.Parameters.Add(new SQLiteParameter("Altitude", Estacoes.Altitude));
+                    command.Parameters.Add(new SQLiteParameter("TemperaturaMaxAbs", Estacoes.TemperaturaMaxAbs));
+                    command.Parameters.Add(new SQLiteParameter("TemperaturaMinAbs", Estacoes.TemperaturaMinAbs));
+                    command.Parameters.Add(new SQLiteParameter("PrecipitacaoMaxAbs", Estacoes.PrecipitacaoMaxAbs));
+                    command.Parameters.Add(new SQLiteParameter("Nome", Estacoes.Nome));
+                    command.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Estação Cadastrada.", "Sucesso!", MessageBoxButton.OK);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erro", MessageBoxButton.OK);
+            }
         }
+        public void SelectStation()
+        {
+            Data = new AcessoDados();
+            try
+            {
+                Data.GetConnection();
+                using (SQLiteConnection con = new SQLiteConnection(Data.ConnectionString))
+                {
+                    con.Open();
+                    SQLiteCommand command = new SQLiteCommand();
+
+                    string query = @"SELECT * FROM ESTACOES";
+                    command.CommandText = query;
+                    command.Connection = con;
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erro", MessageBoxButton.OK);
+            }
+        }
+
     }
 }

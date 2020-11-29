@@ -12,5 +12,7 @@ namespace DataQS_NetCore.DML
         public double TemperaturaMaxAbs { get; set; }
         public double TemperaturaMinAbs { get; set; }
         public double PrecipitacaoMaxAbs { get; set; }
+        public string Nome { get; set; }
+
     }
 }

@@ -1,6 +1,8 @@
-﻿using DataQS_NetCore.ViewModels;
+﻿using DataQS_NetCore.DAL;
+using DataQS_NetCore.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,9 @@ namespace DataQS_NetCore
     {
         public MainWindow()
         {
+            AcessoDados Data = new AcessoDados();
+            Data.GetConnection();
+
             InitializeComponent();
         }
 
@@ -76,7 +81,7 @@ namespace DataQS_NetCore
         private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)
         {
             DataContext = new CadastroViewModel();
-       }
+        }
 
         private void ListViewItem_Selected_2(object sender, RoutedEventArgs e)
         {
