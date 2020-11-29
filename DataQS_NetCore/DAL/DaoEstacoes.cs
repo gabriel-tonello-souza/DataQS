@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DataQS_NetCore.DML;
 using DataQS_NetCore.DAL;
-using DataConnection;
 using System.Data.SQLite;
 using System.Windows;
 
@@ -48,8 +47,10 @@ namespace DataQS_NetCore.DAL
                 MessageBox.Show(e.ToString(), "Erro", MessageBoxButton.OK);
             }
         }
-        public void SelectStation()
+        public List<Estacoes> SelectStation()
         {
+            List<Estacoes> estacoes = new List<Estacoes>();
+
             Data = new AcessoDados();
             try
             {
@@ -63,10 +64,21 @@ namespace DataQS_NetCore.DAL
                     command.CommandText = query;
                     command.Connection = con;
                     SQLiteDataReader reader = command.ExecuteReader();
+
                     while (reader.Read())
                     {
-
+                        Estacoes estacao = new Estacoes();
+                        estacao.Altitude = reader.GetDouble("Altitude");
+                        estacao.Longitude = reader.GetDouble("Longitude");
+                        estacao.Latitude = reader.GetDouble("Latitude");
+                        estacao.Nome = reader.GetString("Nome");
+                        estacao.PrecipitacaoMaxAbs = reader.GetDouble("PrecipitacaoMaxAbs");
+                        estacao.TemperaturaMaxAbs = reader.GetDouble("TemperaturaMaxAbs");
+                        estacao.TemperaturaMinAbs = reader.GetDouble("TemperaturaMinAbs");
+                        estacoes.Add(estacao);
                     }
+                    
+
                     con.Close();
                 }
             }
@@ -74,6 +86,7 @@ namespace DataQS_NetCore.DAL
             {
                 MessageBox.Show(e.ToString(), "Erro", MessageBoxButton.OK);
             }
+            return estacoes;
         }
 
     }

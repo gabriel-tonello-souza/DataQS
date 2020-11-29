@@ -18,9 +18,17 @@ namespace DataQS_NetCore.Pages
     {
         public Cadastro()
         {
-            DaoEstacoes daoestacoes = new DaoEstacoes();
-            daoestacoes.SelectStation();
             InitializeComponent();
+            AtualizaEstacoes();
+
+        }
+
+        public void AtualizaEstacoes()
+        {
+            EstacoesList.Items.Clear();
+            DaoEstacoes daoestacoes = new DaoEstacoes();
+            List<Estacoes> estacoes = daoestacoes.SelectStation();
+            foreach (Estacoes e in estacoes) EstacoesList.Items.Add(e.Nome);
         }
 
         private void Salvar_Click(object sender, RoutedEventArgs e)
@@ -33,9 +41,23 @@ namespace DataQS_NetCore.Pages
             estacoes.PrecipitacaoMaxAbs = Convert.ToDouble(PrecipitacaoMaxAbs.Text);
             estacoes.TemperaturaMaxAbs = Convert.ToDouble(TemperaturaMaxAbs.Text);
             estacoes.TemperaturaMinAbs = Convert.ToDouble(TemperaturaMinAbs.Text);
-
             DaoEstacoes daoestacoes = new DaoEstacoes();
             daoestacoes.AddEstation(estacoes);
+
+            AtualizaEstacoes();
+            Nome.Text = "";
+            Latitude.Text = "";
+            Longitude.Text = "";
+            Altitude.Text = "";
+            PrecipitacaoMaxAbs.Text = "";
+            TemperaturaMaxAbs.Text = "";
+            TemperaturaMinAbs.Text = "";
+
+        }
+
+        private void EstacoesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
         }
     }
 }

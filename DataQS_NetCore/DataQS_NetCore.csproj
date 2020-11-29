@@ -12,9 +12,6 @@
     <PackageReference Include="System.Data.SQLite" Version="1.0.113.6" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataConnection\DataConnection.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets/img_contact.png" />
   </ItemGroup>
   <ItemGroup>
