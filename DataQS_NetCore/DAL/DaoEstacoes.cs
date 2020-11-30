@@ -68,6 +68,7 @@ namespace DataQS_NetCore.DAL
                     while (reader.Read())
                     {
                         Estacoes estacao = new Estacoes();
+                        estacao.Id = reader.GetInt32("Id");
                         estacao.Altitude = reader.GetDouble("Altitude");
                         estacao.Longitude = reader.GetDouble("Longitude");
                         estacao.Latitude = reader.GetDouble("Latitude");
@@ -77,8 +78,6 @@ namespace DataQS_NetCore.DAL
                         estacao.TemperaturaMinAbs = reader.GetDouble("TemperaturaMinAbs");
                         estacoes.Add(estacao);
                     }
-                    
-
                     con.Close();
                 }
             }

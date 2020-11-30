@@ -12,10 +12,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DataQS_NetCore.DAL;
+using System.Linq;
+
 namespace DataQS_NetCore.Pages
 {
     public partial class Cadastro : UserControl
     {
+        static List<Estacoes> estacoes;
         public Cadastro()
         {
             InitializeComponent();
@@ -27,8 +30,14 @@ namespace DataQS_NetCore.Pages
         {
             EstacoesList.Items.Clear();
             DaoEstacoes daoestacoes = new DaoEstacoes();
-            List<Estacoes> estacoes = daoestacoes.SelectStation();
-            foreach (Estacoes e in estacoes) EstacoesList.Items.Add(e.Nome);
+
+            estacoes = daoestacoes.SelectStation();
+            this.EstacoesList.SelectedValuePath = "Key";
+            this.EstacoesList.DisplayMemberPath = "Value";
+            foreach (Estacoes e in estacoes)
+            {
+                EstacoesList.Items.Add(new KeyValuePair<int, string>(e.Id, e.Nome));
+            }
         }
 
         private void Salvar_Click(object sender, RoutedEventArgs e)
@@ -55,9 +64,21 @@ namespace DataQS_NetCore.Pages
 
         }
 
-        private void EstacoesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void EstacoesList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-           
+            int key = ((KeyValuePair<int, string>)EstacoesList.SelectedItem).Key;
+
+            var estacao = estacoes.Select(x => x).Where(x => x.Id == key ).ToList();
+
+            Nome.Text = estacao[0].Nome.ToString();
+            Latitude.Text = estacao[0].Latitude.ToString();
+            Longitude.Text = estacao[0].Longitude.ToString();
+            Altitude.Text = estacao[0].Altitude.ToString();
+            PrecipitacaoMaxAbs.Text = estacao[0].PrecipitacaoMaxAbs.ToString();
+            TemperaturaMaxAbs.Text = estacao[0].TemperaturaMaxAbs.ToString();
+            TemperaturaMinAbs.Text = estacao[0].TemperaturaMinAbs.ToString();
+
+
         }
     }
 }

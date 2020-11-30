@@ -341,7 +341,7 @@
                                        Stretch="Fill"
                                        Margin="12,0,0,0" StretchDirection="DownOnly" Width="30" Height="40"/>
 
-                                <TextBlock Text="Registro Estação"
+                                <TextBlock Text="Estações"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
@@ -352,7 +352,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_register"
-                                         Content="Registro"
+                                         Content="Estações"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
