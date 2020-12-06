@@ -133,9 +133,9 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="197*"/>
             <RowDefinition Height="194*"/>
-            <RowDefinition Height="193*"/>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="195*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="65*"/>
@@ -358,7 +358,7 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-                        
+
                         <!--  -->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" Selected="ListViewItem_Selected_2"
@@ -389,7 +389,7 @@
 
                         </ListViewItem>
 
-                        
+
                         <!--// Maps //-->
 
                         <ListViewItem HorizontalAlignment="Left"
@@ -423,7 +423,7 @@
 
                         <!--// Settings //-->
 
-                        
+
                         <!--// Listview items style template //-->
 
                         <ListView.ItemContainerStyle>

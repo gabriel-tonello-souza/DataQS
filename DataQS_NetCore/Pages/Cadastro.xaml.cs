@@ -77,8 +77,6 @@ namespace DataQS_NetCore.Pages
             PrecipitacaoMaxAbs.Text = estacao[0].PrecipitacaoMaxAbs.ToString();
             TemperaturaMaxAbs.Text = estacao[0].TemperaturaMaxAbs.ToString();
             TemperaturaMinAbs.Text = estacao[0].TemperaturaMinAbs.ToString();
-
-
         }
     }
 }

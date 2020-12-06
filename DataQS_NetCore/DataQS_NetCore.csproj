@@ -8,8 +8,10 @@
     <None Remove="Assets\img_upload2.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="GenericParser" Version="1.1.6" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.113.6" />
+    <PackageReference Include="XamlAnimatedGif" Version="1.2.3" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets/img_contact.png" />
@@ -22,6 +24,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets/img_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets/img_up.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets/img_message.png" />

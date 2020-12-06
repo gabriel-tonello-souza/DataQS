@@ -53,7 +53,7 @@ namespace DataQS_NetCore.DAL
                 {
                     SQLiteCommand command = new SQLiteCommand();
                     con.Open();
-                    command.CommandText = @"INSERT INTO Estacoes VALUES
+                    command.CommandText = @"INSERT INTO Estacoes (Latitude, Longitude, Altitude, TemperaturaMaxAbs, TemperaturaMinAbs, PrecipitacaoMaxAbs, Nome) VALUES 
                                             (-8.3675    ,-36.4294   ,718    ,35.9   ,11.6   ,108.6  ,'Belo Jardim (BJD) - PE'),
                                             (-15.60083  ,-47.71306  ,1023   ,35.5   ,1.6    ,132.8  ,'Brasília (BRB) - DF'),
                                             (-22.6896   ,-45.0062   ,574    ,37.5   ,1.2    ,117    ,'Cachoeira Paulista (CPA) - SP'),
@@ -71,7 +71,7 @@ namespace DataQS_NetCore.DAL
                                             (-27.0800	,-52.6144	,700	,37.2	,-4.4	,146.7  ,'Chapecó (CHP) - SC'),
                                             (-25.495444	,-49.331208	,891	,34.8	,-5.4	,104.6  ,'Curitiba (CTB) - PR'),
                                             (-27.6017	,-58.5178	,31     ,38.8	,0.7	,187.1  ,'Florianópolis (FLN) - SC'),
-                                            (-26.2525	,-48.8578	,48     ,41.7	,-3	    ,160,4  ,'Joinville (JOI) - SC'),
+                                            (-26.2525	,-48.8578	,48     ,41.7	,-3	    ,160.4  ,'Joinville (JOI) - SC'),
                                             (-5.8367	,-35.2064	,58	    ,33.8	,10.6	,168.4  ,'Natal (NAT) - RN'),
                                             (-29.0956	,-49.8133	,15	    ,39.3	,-0.1	,112.4  ,'Sombrio (SBR) - SC')
                                             ";

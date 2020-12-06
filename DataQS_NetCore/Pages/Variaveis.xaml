@@ -7,11 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#FF3F3F8F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="109*"/>
+            <RowDefinition Height="38*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="758*"/>
+            <ColumnDefinition Width="21*"/>
         </Grid.ColumnDefinitions>
-        <TextBox HorizontalAlignment="Left" Margin="135,186,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Variáveis" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" FontFamily="Roboto Light" FontSize="48"/>
+        <Label Content="Variáveis" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" FontFamily="Roboto Light" FontSize="48" Height="64" Width="194" Grid.Column="1"/>
+        <ComboBox Grid.Row="1" x:Name="EstacoesList" VerticalAlignment="Top" FontSize="14" AutomationProperties.Name="Estacoes" Height="26" Margin="0,38,575,0" SelectionChanged="EstacoesList_SelectionChanged_1" Grid.Column="1"/>
+        <Label Content="Estações" x:Name="EstacoesLabel" Margin="0,12,575,0" VerticalAlignment="Top" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Height="26" Grid.Row="1" Grid.Column="1"/>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="2"
+                    AllowDrop="True"
+                    Background="#4B0082"
+                    x:Name="FileDropStackPanel"
+                    Drop="FileDropStackPanel_Drop"
+                    >
+            <Image Height="158" Stretch="Uniform" Source="../Assets/img_up.png" Width="158" Margin="0,40,0,0"/>
+        </StackPanel>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="653,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="70" Height="30"/>
 
     </Grid>
 </UserControl>
