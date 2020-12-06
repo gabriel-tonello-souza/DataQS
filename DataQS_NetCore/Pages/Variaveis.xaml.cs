@@ -56,6 +56,9 @@ namespace DataQS_NetCore.Pages
 
                 string file = files[0];
 
+                var Delimiter = new Delimiter();
+                Delimiter.Show();
+
                 DataTable res = ConvertCSVtoDataTable(file, ",");
 
                 var DataGrid = new DataGrid(res);

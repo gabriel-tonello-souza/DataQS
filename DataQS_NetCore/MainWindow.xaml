@@ -7,12 +7,11 @@
         xmlns:viewmodels="clr-namespace:DataQS_NetCore.ViewModels"
         xmlns:views="clr-namespace:DataQS_NetCore.Pages"
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="Data Quality System" 
         Height="600" 
         Width="1000"
         ResizeMode="CanResize"
-        Topmost="True"
-        WindowStyle="SingleBorderWindow"
+        WindowStyle="ThreeDBorderWindow"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -133,7 +132,8 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="194*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="168*"/>
             <RowDefinition Height="195*"/>
             <RowDefinition Height="195*"/>
         </Grid.RowDefinitions>
@@ -148,7 +148,7 @@
 
         <!--// Background Color //-->
 
-        <Grid Background="Black" Grid.ColumnSpan="6" Grid.RowSpan="3">
+        <Grid Background="Black" Grid.ColumnSpan="6" Grid.RowSpan="4">
             <!--// App Close Button //-->
 
             <Grid>

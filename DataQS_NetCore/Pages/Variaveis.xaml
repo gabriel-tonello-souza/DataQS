@@ -31,6 +31,7 @@
             <Image Height="158" Stretch="Uniform" Source="../Assets/img_up.png" Width="158" Margin="0,40,0,0"/>
         </StackPanel>
         <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="653,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="70" Height="30"/>
+        <Label Content="Arraste e solte seu arquivo aqui" x:Name="EstacoesLabel_Copy" FontFamily="Roboto Light" Background="Transparent" Foreground="White" FontSize="14" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Width="204" Margin="0,0,0,192" RenderTransformOrigin="0.5,1.615"/>
 
     </Grid>
 </UserControl>
