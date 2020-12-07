@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DataGrid">
 
-    <Grid>
+    <Grid Background="#FF3F3F8F">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="773*"/>
@@ -19,7 +19,9 @@
             <RowDefinition Height="303*"/>
             <RowDefinition Height="62*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Column="1" x:Name="DataGridView" Grid.Row="1"/> 
+        <DataGrid Grid.Column="1" x:Name="DataGridView" Grid.Row="1"/>
+        <Label Content="Tabela " HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Center" Background="Transparent" Foreground="White" FontFamily="Roboto Light" FontSize="48" Height="64" Width="194" Grid.Column="1"/>
+        <Button Content="Fechar" Name="Close" Grid.Column="1" HorizontalAlignment="Left" Margin="685,31,0,0" Grid.Row="2" VerticalAlignment="Top" Click="Close_Click"/>
 
     </Grid>
 </Page>

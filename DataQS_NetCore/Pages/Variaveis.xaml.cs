@@ -56,15 +56,22 @@ namespace DataQS_NetCore.Pages
 
                 string file = files[0];
 
-                var Delimiter = new Delimiter();
-                Delimiter.Show();
+                var delimiter = new Delimiter();
+                var del = new Window();
+                del.Content = delimiter;
+                del.ShowDialog();
 
-                DataTable res = ConvertCSVtoDataTable(file, ",");
+                string d = delimiter.getDelimiter();
+                DataTable res = ConvertCSVtoDataTable(file, d);
+
+                del.Close();
+
 
                 var DataGrid = new DataGrid(res);
-                var host = new Window();
-                host.Content = DataGrid;
-                host.Show();
+                var dtView = new Window();
+                dtView.Content = DataGrid;
+                dtView.ShowDialog();
+                dtView.Close();
             }
         }
 
