@@ -15,13 +15,14 @@
             <ColumnDefinition Width="12*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="85*"/>
-            <RowDefinition Height="303*"/>
+            <RowDefinition Height="110*"/>
             <RowDefinition Height="62*"/>
+            <RowDefinition Height="239*"/>
+            <RowDefinition Height="39*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Column="1" x:Name="DataGridView" Grid.Row="1"/>
-        <Label Content="Tabela " HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Center" Background="Transparent" Foreground="White" FontFamily="Roboto Light" FontSize="48" Height="64" Width="194" Grid.Column="1"/>
-        <Button Content="Fechar" Name="Close" Grid.Column="1" HorizontalAlignment="Left" Margin="685,31,0,0" Grid.Row="2" VerticalAlignment="Top" Click="Close_Click"/>
+        <DataGrid Grid.Column="1" x:Name="DataGridView" Grid.Row="2" CanUserSortColumns="False"/>
+        <Label Content="Tabela " HorizontalAlignment="Left" Margin="14,0,0,0" VerticalAlignment="Center" Background="Transparent" Foreground="White" FontFamily="Roboto Light" FontSize="48" Height="64" Width="194" Grid.Column="1"/>
+        <Button Content="Fechar" Name="btnClose" Grid.Column="1" HorizontalAlignment="Left" Margin="691,0,0,0" Grid.Row="3" VerticalAlignment="Center" Click="btnClose_Click" Command="{Binding OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Height="20" Width="40"/>
 
     </Grid>
 </Page>

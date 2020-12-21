@@ -25,6 +25,7 @@ namespace DataQS_NetCore.Pages
     /// </summary>
     public partial class Variaveis : UserControl
     {
+        public static Window dtView = new Window();
         public Variaveis()
         {
             InitializeComponent();
@@ -57,22 +58,29 @@ namespace DataQS_NetCore.Pages
                 string file = files[0];
 
                 var delimiter = new Delimiter();
-                var del = new Window();
-                del.Content = delimiter;
-                del.ShowDialog();
-
+                //var del = new Window();
+                //del.Content = delimiter;
+                //del.Show();
+                DataTable res = new DataTable();
                 string d = delimiter.getDelimiter();
-                DataTable res = ConvertCSVtoDataTable(file, d);
+                if (file.Length > 4 && file.Substring(file.Length - 4) == ".csv" ) //confere se é csv e se tem mais do que 4 caracteres
+                {
+                    res = ConvertCSVtoDataTable(file, d);
+                }
+                //del.Close();
+                
 
-                del.Close();
+                var DataGrid = new DataGrid(res, this);
+                dtView = new Window();
 
-
-                var DataGrid = new DataGrid(res);
-                var dtView = new Window();
                 dtView.Content = DataGrid;
                 dtView.ShowDialog();
-                dtView.Close();
             }
+        }
+
+        public static void CloseWindow()
+        {
+            dtView.Close();
         }
 
         public static DataTable ConvertCSVtoDataTable(string strFilePath, string divider)
@@ -119,5 +127,8 @@ namespace DataQS_NetCore.Pages
             }
             return dt;
         }
+
+
+
     }
 }

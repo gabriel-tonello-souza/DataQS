@@ -19,7 +19,7 @@ namespace DataQS_NetCore.Pages
     /// </summary>
     public partial class DataGrid : Page
     {
-        public DataGrid(DataTable dt)
+        public DataGrid(DataTable dt, Variaveis variaveis)
         {
             InitializeComponent();
             DataGridView.ItemsSource = dt.DefaultView;
@@ -30,8 +30,9 @@ namespace DataQS_NetCore.Pages
             return dt;
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
+            Variaveis.CloseWindow();
         }
     }
 }
